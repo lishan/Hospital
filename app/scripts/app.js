@@ -35,6 +35,11 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
+      .state('login', {
+        url:"/login",
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .state('main', {
         url:"/",
         templateUrl: 'views/main.html',
@@ -64,6 +69,5 @@ angular
         url:"/unknown",
         templateUrl: '404.html'
       });
-      $urlRouterProvider.otherwise("unknown");
-      $locationProvider.html5Mode(true).hashPrefix('!');
+      $urlRouterProvider.otherwise("/");
   });

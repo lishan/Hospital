@@ -1,0 +1,35 @@
+<!--<div class="jumbotron">-->
+<!--  <h1>'Allo, 'Allo!</h1>-->
+<!--  <p class="lead">-->
+<!--    <img src="images/yeoman.png" alt="I'm Yeoman"><br>-->
+<!--    Always a pleasure scaffolding your apps.-->
+<!--  </p>-->
+<!--  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>-->
+<!--  -->
+<!--</div>-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" style="text-align: center">
+      <p class="lead" style="margin-top: 70px; margin-left: -48px;">
+        <img src="images/yeoman.png" style="height: 200px;" alt="系统"><br>
+        一个系统
+      </p>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-group">
+        <label class="pull-left">用户名</label>
+        <input class="form-control" placeholder="test@test.com" ng-model="user.name">
+      </div>
+      <div class="form-group">
+        <label class="pull-left">密码</label>
+        <input ng-class="styles" class="form-control" type="password" ng-model="user.pass">
+        <div ng-show="error" class="pull-left" style="color:red">用户名或密码错误哦！</div>
+      </div>
+      <div class="form-group" style="padding-top: 10px;">
+        <a class="btn btn-block btn-primary" ng-click="login()">登录</a>
+      </div>
+    </div>
+  </div>
+</div>

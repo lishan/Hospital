@@ -41,5 +41,9 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "sequelize": "^5.19.1",
+    "sqlite3": "^4.1.0"
   }
 }
