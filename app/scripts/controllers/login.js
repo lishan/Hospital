@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('basic')
-  .controller('LoginCtrl',['$scope', '$location', '$rootScope', 'hotkeys', function ($scope, $location, $rootScope, hotkeys) {
+  .controller('LoginCtrl',['$scope', '$location', '$rootScope', 'hotkeys', '$http', function ($scope, $location, $rootScope, hotkeys, $http) {
     $scope.error = false;
 
     $scope.login = function(){
@@ -9,6 +9,10 @@ angular.module('basic')
         $rootScope.login($scope.user.name, $scope.user.pass);
       }
     };
+
+    $http.get("/api/user/test").then(function(data){
+      console.log(data);
+    });
 
     hotkeys.bindTo($scope).add({
       combo: 'enter',

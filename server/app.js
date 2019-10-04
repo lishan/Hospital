@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use('/api', require('./api/sql'));
+app.use('/api/user', require('./api/user'));
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '../',config[env].dist,'/404.html'));// load the single view file (angular will handle the page changes on the front-end)
