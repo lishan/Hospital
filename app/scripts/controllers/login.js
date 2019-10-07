@@ -5,14 +5,11 @@ angular.module('basic')
     $scope.error = false;
 
     $scope.login = function(){
-      if($scope.user.pass !== undefined) {
-        $rootScope.login($scope.user.name, $scope.user.pass);
-      }
+      $http.post("/api/user/login", {name: $scope.user.name,password: $scope.user.pass})
+        .then(function(user){
+         console.log(user);
+      });
     };
-
-    $http.get("/api/user/test").then(function(data){
-      console.log(data);
-    });
 
     hotkeys.bindTo($scope).add({
       combo: 'enter',

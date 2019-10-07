@@ -1,18 +1,26 @@
 "use strict";
 import express from 'express';
-import {User} from './model';
+import {DataType, Sequelize} from './connector'
+import user from '../models/user'
+const User = user(Sequelize, DataType)
+
 const router = express.Router()
 
-router.get('/:userName', (req, res) => {
-   User.findOne({
-     where:{name: req.params.userName},
-     attributes: ['id', 'name', 'password']}
-   ).then((user) => {
-     res.send(user);
-   }).catch((error) => {
-     console.log(error);
-     res.status(500).send(error);
-   });
+router.post('/login', (req, res)=> {
+  let body = req.body
+  User.findOne({
+    where:{
+      name: body.name,
+      password: body.password
+    },
+    attributes:['name','role']
+  }).then((user) => {
+    if(user){
+      res.send(user);
+    }else{
+      res.status(400).send('Bad Request');
+    }
+  })
 })
 
 module.exports = router;
