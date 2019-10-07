@@ -65,6 +65,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'SettingCtrl'
       })
+      .state('input', {
+        url:"/input",
+        templateUrl: 'views/input.html',
+        controller: 'InputCtrl'
+      })
       .state('unknown', {
         url:"/unknown",
         templateUrl: '404.html'

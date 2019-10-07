@@ -4,11 +4,10 @@
  * Controller of the dataModel
  */
 angular.module('basic')
-  .controller('DataModelCtrl',['$rootScope', '$scope', function ($rootScope, $scope) {
+  .controller('DataModelCtrl',['$rootScope', '$scope', '$http', function ($rootScope, $scope, $http) {
     $rootScope.tab = "dataModel";
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  }]);
+    $http.get("/api/record").then((data)=>{
+      $scope.data = data.data;
+      console.log($scope.data);
+    })
+}])

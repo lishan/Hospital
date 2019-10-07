@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS record;
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE user(id integer PRIMARY KEY AUTOINCREMENT, name text not null, password text not
+null, role text);
+CREATE TABLE record(id integer PRIMARY KEY AUTOINCREMENT, name text not null, start integer, end integer, comment
+text, nurse integer, foreign key(nurse)references user(id));
+
+INSERT INTO user("id", "name", "password", "role") values("1", "test@test.com", "test", "admin");

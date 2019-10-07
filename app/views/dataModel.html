@@ -6,19 +6,15 @@
         <thead>
         <tr>
           <th>名称</th>
-          <th>状态</th>
+          <th>备注</th>
           <th>时间</th>
-          <th>操作人</th>
-          <th>动作</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody ng-repeat="item in data">
         <tr>
-          <td>表名称</td>
-          <td>时间</td>
-          <td>表名称</td>
-          <td>表名称</td>
-          <td>表名称</td>
+          <td>{{item.name}}</td>
+          <td>{{item.comment}}</td>
+          <td>{{item.start}}</td>
         </tr>
         </tbody>
       </table>

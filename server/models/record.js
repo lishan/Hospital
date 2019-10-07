@@ -8,6 +8,11 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       field: 'id'
     },
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      field: 'name'
+    },
     start: {
       type: DataTypes.INTEGER,
       allowNull: true,

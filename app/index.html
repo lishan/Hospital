@@ -54,9 +54,15 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a ng-class="{true:'active'}[tab === 'dashboard']" href="#/login">
+              <a ng-class="{true:'active'}[tab === 'dashboard']" href="#/dashboard">
                 <span class="glyphicon glyphicon-picture"></span>
                 <span>仪表盘</span>
+              </a>
+            </li>
+            <li>
+              <a ng-class="{true:'active'}[tab === 'login']" href="#/login">
+                <span class="glyphicon glyphicon-log-in"></span>
+                <span>登录</span>
               </a>
             </li>
             <li>
@@ -69,6 +75,12 @@
               <a ng-class="{true:'active'}[tab === 'setting']" href="#/setting">
                 <span class="glyphicon glyphicon-cog"></span>
                 <span>设置</span>
+              </a>
+            </li>
+            <li>
+              <a ng-class="{true:'active'}[tab === 'input']" href="#/input">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span>录入</span>
               </a>
             </li>
           </ul>
@@ -144,6 +156,7 @@
 <script src="build-scripts/controllers/dataModel.js"></script>
 <script src="build-scripts/controllers/setting.js"></script>
 <script src="build-scripts/controllers/login.js"></script>
+<script src="build-scripts/controllers/input.js"></script>
 <!-- endbuild -->
 </body>
 </html>

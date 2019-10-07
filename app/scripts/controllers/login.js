@@ -2,6 +2,7 @@
 
 angular.module('basic')
   .controller('LoginCtrl',['$scope', '$location', '$rootScope', 'hotkeys', '$http', function ($scope, $location, $rootScope, hotkeys, $http) {
+    $rootScope.tab = "login";
     $scope.error = false;
 
     $scope.login = function(){
