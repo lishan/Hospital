@@ -7,9 +7,7 @@ const Record = record(Sequelize, DataType)
 const router = express.Router()
 
 router.get("/", (req, res) => {
-  Record.findAll({
-    attributes:['name','start','end','comment']
-  }).then((data)=>{
+  Record.findAll().then((data)=>{
     res.send(data);
   })
 })

@@ -1,23 +1,58 @@
-<div class="jumbotron">
-  <div class="panel panel-default">
-    <div class="panel-heading">工作表</div>
-    <div class="panel-body">
-      <table class="table table-bordered">
-        <thead>
+<div class="panel panel-default">
+  <div class="panel-heading">工作表</div>
+  <div class="panel-body">
+    <table st-table="displayed" class="table table-striped">
+      <thead>
         <tr>
-          <th>名称</th>
-          <th>备注</th>
-          <th>时间</th>
+          <th>编号</th>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>年龄</th>
+          <th>ID号</th>
+          <th>诊断</th>
+          <th>置管日期</th>
+          <th>置入医生</th>
+          <th>医院名称</th>
+          <th>输液港型号</th>
+          <th>导管植入方式</th>
+          <th>导管放置位置</th>
+          <th>导管尖端位置</th>
+          <th>置入长度</th>
+          <th>PORT放置位置</th>
+          <th>取港日期</th>
+          <th>伤口情况</th>
+          <th>血管超声</th>
         </tr>
-        </thead>
-        <tbody ng-repeat="item in data">
+      </thead>
+      <tbody ng-repeat="item in data">
         <tr>
+          <td>{{item.id}}</td>
           <td>{{item.name}}</td>
+          <td>{{item.gender}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.credit}}</td>
           <td>{{item.comment}}</td>
-          <td>{{item.start}}</td>
+          <td>{{item.date1}}</td>
+          <td>{{item.name1}}</td>
+          <td>{{item.hospital}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.channelInject}}</td>
+          <td>{{item.channelLay}}</td>
+          <td>{{item.channelSpin}}</td>
+          <td>{{item.channelLength}}</td>
+          <td>{{item.portLay}}</td>
+          <td>{{item.date2}}</td>
+          <td>{{item.heal}}</td>
+          <td>{{item.bloodCheck}}</td>
         </tr>
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+      <tfoot ng-hide="numberOfPages==1">
+        <tr>
+          <td colspan="11">
+            <pagination-smart-table num-pages="numberOfPages" current-page="currentPage" max-size="maxSize"></pagination-smart-table>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>

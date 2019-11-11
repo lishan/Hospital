@@ -1,9 +1,27 @@
 DROP TABLE IF EXISTS record;
 DROP TABLE IF EXISTS user;
 
+CREATE TABLE record(id integer PRIMARY KEY AUTOINCREMENT,
+name text not null,
+gender text,
+age integer,
+credit text,
+comment text,
+date1 text,
+name1 text,
+hospital text,
+category text,
+channel_inject text,
+channel_lay text,
+channel_spin text,
+channel_length text,
+port_lay text,
+date2 text,
+heal text,
+blood_check text);
+
 CREATE TABLE user(id integer PRIMARY KEY AUTOINCREMENT, name text not null, password text not
 null, role text);
-CREATE TABLE record(id integer PRIMARY KEY AUTOINCREMENT, name text not null, start integer, end integer, comment
-text, nurse integer, foreign key(nurse)references user(id));
 
 INSERT INTO user("id", "name", "password", "role") values("1", "test@test.com", "test", "admin");
+
