@@ -265,3 +265,31 @@ table a {
 .panel.panel-default {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
+
+.grid {
+  height: 400px;
+}
+
+.cell-tooltip {
+  color: blue;
+}
+
+.cell-tooltip:hover {
+  color: #0000CD;
+  cursor: zoom-in;
+}
+
+.input-group {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.input-group .input-group-addon,
+.input-group .input-group-btn,
+.input-group .form-control {
+  width: auto !important;
+}
+
+.gridCenter1 {
+  border: 2px solid red;
+}

@@ -18,7 +18,7 @@ router.post('/login', (req, res)=> {
     if(user){
       res.send(user);
     }else{
-      res.status(400).send('Bad Request');
+      res.status(404).send('没找到用户');
     }
   })
 })

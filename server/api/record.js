@@ -13,11 +13,47 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-  req.body.start = new Date().getTime();
   Record.create(req.body).then((data)=>{
-    console.log(data);
-    res.send("created");
-  })
+    res.send("创建成功");
+  }).catch(()=>{
+    res.send("创建失败");
+  });
+})
+
+router.put("/", (req, res) => {
+    Record.update(req.body,{
+      where: {id: req.body.id}
+    }).then((data)=>{
+      res.send("更新成功");
+    }).catch(()=>{
+      res.status(500).send("更新错误");
+    });
+})
+
+router.delete("/:id", (req, res)=> {
+  Record.destroy({
+    where:{
+      id: req.params.id
+    }
+  }).then((data)=>{
+    res.send("删除成功");
+  }).catch(()=>{
+    res.status(500).send("删除错误");
+  });
+})
+
+router.post("/:id", (req, res)=>{
+  let date = new Date();
+  let month = date.getMonth() + 1;
+  Record.update({
+    date2: date.getFullYear() + "/" + month + "/" + date.getDate()
+  },{
+    where: {id: req.params.id}
+  }).then((data)=>{
+        res.send("归档成功");
+      }).catch(()=>{
+        res.status(500).send("归档错误");
+      });
 })
 
 module.exports = router;

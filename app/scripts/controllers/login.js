@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('basic')
-  .controller('LoginCtrl',['$scope', '$location', '$rootScope', 'hotkeys', '$http', '$cookies', '$state',
-   function ($scope, $location, $rootScope, hotkeys, $http, $cookies, $state) {
+  .controller('LoginCtrl',['$scope', '$location', '$rootScope', 'hotkeys', '$http', '$cookies', '$state', 'spinnerService',
+   function ($scope, $location, $rootScope, hotkeys, $http, $cookies, $state, spinnerService) {
     $rootScope.tab = "login";
     $scope.error = false;
 
@@ -11,16 +11,17 @@ angular.module('basic')
     }
 
     $scope.login = function(){
+      spinnerService.show('spinner');
       $http.post("/api/user/login", {name: $scope.user.name, password: $scope.user.pass})
         .then(function(user){
          let expireDate = new Date();
          expireDate.setDate(expireDate.getDate() + 1);
          $cookies.put('user', user.data.name, { expires: expireDate });
          $cookies.put('role', user.data.role, { expires: expireDate });
-         console.log($cookies.get("user")["name"]);
+         spinnerService.close('spinner');
          $state.go("dataModel");
-      }, function(err){
-         console.log(err);
+      }, function(){
+         spinnerService.close('spinner');
          $scope.error = true;
       });
     };

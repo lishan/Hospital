@@ -17,19 +17,19 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngTouch',
-    'ngFileUpload',
+    'cgNotify',
+    'sarsha.spinner',
     'ui.bootstrap',
-    'ui-notification',
-    'angularSpinner',
-    'ui.select',
     'cfp.hotkeys',
-    'ui.bootstrap.datetimepicker',
     'angularMoment',
-    'chart.js',
-    'smart-table'
+    'ui.grid',
+    'ui.grid.pagination',
+    'ui.grid.resizeColumns'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise("/");
     $stateProvider
       .state('login', {
         url:"/",
@@ -44,13 +44,15 @@ angular
       .state('input', {
         url:"/input",
         templateUrl: 'views/input.html',
-        controller: 'InputCtrl'
+        controller: 'InputCtrl',
+        params:{
+          record: null
+        }
       })
       .state('unknown', {
         url:"/unknown",
         templateUrl: '404.html'
       });
-      $urlRouterProvider.otherwise("/unknown");
   }).run(function($rootScope, $cookies, $state){
     $rootScope.logout = function() {
       $rootScope.username = undefined;
