@@ -291,5 +291,13 @@ table a {
 }
 
 .gridCenter1 {
-  border: 2px solid red;
+  color: red;
+}
+
+#work-table .ui-grid-filter-container {
+  padding-left: 4px;
+}
+
+#work-table .ui-grid-icon-angle-down {
+  display: none;
 }
